@@ -16,12 +16,48 @@ body {
   overflow-x: hidden;
 }
 
+header {
+  background: #b89cfb;
+  background: -moz-linear-gradient(left, #b89cfb 0%, #8ad5a9 100%);
+  background: -webkit-linear-gradient(left, #b89cfb 0%, #8ad5a9 100%);
+  min-height: 5rem;
+  width: 100%;
+  box-shadow: 0px 5px 4px 0px #989898;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-items: end;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+main {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+footer {
+  background-color: #4d4d4d;
+  color: white;
+  min-height: 5rem;
+  width: 100%;
+  box-shadow: 0px -5px 4px 0px #989898;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
 }
 
 * {

@@ -1,7 +1,8 @@
 import Link from 'next/link';
+import { getProducts } from '../../database/products';
 
 export const metadata = {
-  title: 'Plantify',
+  title: 'Products',
   description: 'Find beautiful plants online',
 };
 
@@ -13,8 +14,16 @@ export default function ProductsPage() {
       {products.map((product) => {
         return (
           <div key={`product-${product.id}`}>
-            <Link href={`/products/${product.id}`}>
-              <div>{product.name}</div>
+            <Link
+              data-test-id="product-<product id>"
+              href={`/products/${product.id}`}
+            >
+              <h3>{product.name}</h3>
+              <div>{product.description}</div>
+              <div>{product.price}</div>
+              <div>
+                <button>Add To Cart</button>
+              </div>
             </Link>
           </div>
         );
