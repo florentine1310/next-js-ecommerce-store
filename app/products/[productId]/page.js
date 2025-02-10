@@ -1,6 +1,6 @@
 import React from 'react';
 import { getProduct } from '../../../database/products';
-import QuantityCount from '../../GenerateQuantityCount';
+import QuantityCount from '../../components/GenerateQuantityCount';
 
 export async function generateMetadata(props) {
   const singleProduct = await getProduct(
