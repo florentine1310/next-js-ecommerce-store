@@ -1,7 +1,6 @@
-'use client';
-
 import React from 'react';
 import { getProduct } from '../../../database/products';
+import QuantityCount from '../../GenerateQuantityCount';
 
 export async function generateMetadata(props) {
   const singleProduct = await getProduct(
@@ -22,6 +21,7 @@ export default async function ProductPage(props) {
       <h1>{singleProduct.name}</h1>
       <p>{singleProduct.description}</p>
       <div data-test-id="product-price">{singleProduct.price}</div>
+      <QuantityCount />
       <button data-test-id="product-add-to-cart">Add to Cart</button>
     </div>
   );
