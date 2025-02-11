@@ -1,7 +1,9 @@
+import { cookies } from 'next/headers';
 import Link from 'next/link';
-import CheckoutButton from '../components/CheckoutButton';
+import CheckoutButton from './CheckoutButton';
 
-export default function CartPage() {
+export default async function CartPage() {
+  const cartItems = (await cookies()).get('cartItems');
   return (
     <div>
       <h1>Shopping Cart</h1>

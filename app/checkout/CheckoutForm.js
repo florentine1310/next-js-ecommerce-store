@@ -56,6 +56,7 @@ export default function CheckoutForm() {
           <input
             data-test-id="checkout-email"
             name="email"
+            type="email"
             value={customer.email}
             placeholder="Enter email address"
             onChange={(e) => {
@@ -160,7 +161,7 @@ export default function CheckoutForm() {
       </form>
       <button
         data-test-id="checkout-confirm-order"
-        onSubmit={handleOrderSubmit}
+        formAction={() => handleOrderSubmit()}
       >
         Confirm Order
       </button>
