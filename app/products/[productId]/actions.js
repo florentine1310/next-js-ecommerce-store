@@ -3,5 +3,5 @@
 import { cookies } from 'next/headers';
 
 export async function createCookie(value) {
-  (await cookies()).set('selectedProduct', JSON.stringify({ value }));
+  (await cookies()).set('selectedProduct', JSON.stringify([{ value }]));
 }
