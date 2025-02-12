@@ -17,6 +17,7 @@ export default function AddToCartForm({ selectedProduct }) {
   }
 
   const cookieValue = {
+    id: selectedProduct.id,
     name: selectedProduct.name,
     price: selectedProduct.price,
     quantity: quantity,
