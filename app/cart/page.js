@@ -1,5 +1,6 @@
 import { cookies } from 'next/headers';
 import Link from 'next/link';
+import CartItemRemoveButton from './CartItemRemoveButton';
 import CheckoutButton from './CheckoutButton';
 
 export default async function CartPage() {
@@ -42,7 +43,7 @@ export default async function CartPage() {
                 <td> {item.price}</td>
                 <td>{item.quantity * item.price}</td>
                 <td>
-                  <button>Remove</button>
+                  <CartItemRemoveButton itemId={item.id} />
                 </td>
               </tr>
             );
@@ -51,7 +52,7 @@ export default async function CartPage() {
             <td></td>
             <td>{totalQuantity}</td>
             <td></td>
-            <td>{totalPrice}</td>
+            <td data-test-id="cart-total">{totalPrice}</td>
           </tr>
         </tbody>
       </table>
