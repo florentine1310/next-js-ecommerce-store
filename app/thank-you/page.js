@@ -1,3 +1,8 @@
+export const metadata = {
+  title: 'Thank You',
+  description: 'Order successfully submitted',
+};
+
 export default function ThankYouPage() {
   return (
     <div>

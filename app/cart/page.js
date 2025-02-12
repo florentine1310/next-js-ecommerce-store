@@ -3,8 +3,13 @@ import Link from 'next/link';
 import CartItemRemoveButton from './CartItemRemoveButton';
 import CheckoutButton from './CheckoutButton';
 
+export const metadata = {
+  title: 'Cart',
+  description: 'Your Plantify shopping cart',
+};
+
 export default async function CartPage() {
-  const cartItemsCookie = (await cookies()).get('cartItems');
+  const cartItemsCookie = (await cookies()).get('cart');
 
   const cartItems = !cartItemsCookie ? [] : JSON.parse(cartItemsCookie.value);
 
@@ -25,7 +30,7 @@ export default async function CartPage() {
             <th>Product</th>
             <th>Quantity</th>
             <th>Price</th>
-            <th>Total</th>
+            <th>Subtotal</th>
             <th> </th>
           </tr>
         </thead>

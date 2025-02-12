@@ -5,7 +5,7 @@ import { cookies } from 'next/headers';
 export async function createCookie(value) {
   // 1. Get existing cookie
 
-  const cartItemsCookie = (await cookies()).get('cartItems');
+  const cartItemsCookie = (await cookies()).get('cart');
 
   // 2. Parse cookie value
 
@@ -27,5 +27,5 @@ export async function createCookie(value) {
   } else {
     itemToUpdate.quantity = value.quantity;
   }
-  (await cookies()).set('cartItems', JSON.stringify(cartItems));
+  (await cookies()).set('cart', JSON.stringify(cartItems));
 }

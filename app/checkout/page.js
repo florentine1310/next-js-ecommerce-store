@@ -1,5 +1,10 @@
 import CheckoutForm from './CheckoutForm';
 
+export const metadata = {
+  title: 'Checkout',
+  description: 'Plantify checkout page',
+};
+
 export default function CheckoutPage() {
   return (
     <div>
