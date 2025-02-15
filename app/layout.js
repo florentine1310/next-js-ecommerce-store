@@ -42,7 +42,11 @@ export default function RootLayout({ children }) {
               <Link data-test-id="products-link" href="/products">
                 Products
               </Link>
-              <Link data-test-id="cart-link" href="/cart">
+              <Link
+                data-test-id="cart-link"
+                href="/cart"
+                className="ShoppingCart"
+              >
                 <Image
                   src="/icons/cart-icon.svg"
                   alt="Logo"

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import styles from './page.module.scss';
 
 export default function CheckoutForm() {
   const [customer, setCustomer] = useState({
@@ -25,9 +26,9 @@ export default function CheckoutForm() {
 
   return (
     <div>
-      <form>
+      <form className={styles.CheckoutForm}>
         <h2>Delivery</h2>
-        <label>
+        <label className={styles.CheckoutInputFields}>
           First Name:
           <input
             data-test-id="checkout-first-name"
@@ -39,7 +40,7 @@ export default function CheckoutForm() {
             }}
           />
         </label>
-        <label>
+        <label className={styles.CheckoutInputFields}>
           Last Name:
           <input
             data-test-id="checkout-last-name"
@@ -51,7 +52,7 @@ export default function CheckoutForm() {
             }}
           />
         </label>
-        <label>
+        <label className={styles.CheckoutInputFields}>
           Email:
           <input
             data-test-id="checkout-email"
@@ -64,7 +65,7 @@ export default function CheckoutForm() {
             }}
           />
         </label>
-        <label>
+        <label className={styles.CheckoutInputFields}>
           Address:
           <input
             data-test-id="checkout-address"
@@ -76,7 +77,7 @@ export default function CheckoutForm() {
             }}
           />
         </label>
-        <label>
+        <label className={styles.CheckoutInputFields}>
           City:
           <input
             data-test-id="checkout-city"
@@ -88,7 +89,7 @@ export default function CheckoutForm() {
             }}
           />
         </label>
-        <label>
+        <label className={styles.CheckoutInputFields}>
           Postal code:
           <input
             data-test-id="checkout-postal-code"
@@ -100,7 +101,7 @@ export default function CheckoutForm() {
             }}
           />
         </label>
-        <label>
+        <label className={styles.CheckoutInputFields}>
           Country:
           <input
             data-test-id="checkout-postal-country"
@@ -113,7 +114,7 @@ export default function CheckoutForm() {
           />
         </label>
         <h2>Payment</h2>
-        <label>
+        <label className={styles.CheckoutInputFields}>
           Credit Card:
           <input
             data-test-id="checkout-postal-credit-card"
@@ -128,7 +129,7 @@ export default function CheckoutForm() {
             }}
           />
         </label>
-        <label>
+        <label className={styles.CheckoutInputFields}>
           Expiration Date:
           <input
             data-test-id="checkout-expiration-date"
@@ -143,7 +144,7 @@ export default function CheckoutForm() {
             }}
           />
         </label>
-        <label>
+        <label className={styles.CheckoutInputFields}>
           Security Code:
           <input
             data-test-id="checkout-security-code"
@@ -158,13 +159,13 @@ export default function CheckoutForm() {
             }}
           />
         </label>
+        <button
+          data-test-id="checkout-confirm-order"
+          formAction={() => handleOrderSubmit()}
+        >
+          Confirm Order
+        </button>
       </form>
-      <button
-        data-test-id="checkout-confirm-order"
-        formAction={() => handleOrderSubmit()}
-      >
-        Confirm Order
-      </button>
     </div>
   );
 }
