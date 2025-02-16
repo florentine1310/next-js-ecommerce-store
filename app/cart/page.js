@@ -2,6 +2,7 @@ import { cookies } from 'next/headers';
 import Link from 'next/link';
 import CartItemRemoveButton from './CartItemRemoveButton';
 import CheckoutButton from './CheckoutButton';
+import styles from './page.module.scss';
 
 export const metadata = {
   title: 'Cart',
@@ -24,9 +25,9 @@ export default async function CartPage() {
   return (
     <div>
       <h1>Your Shopping Cart</h1>
-      <table>
+      <table className={styles.ShoppingCart}>
         <thead>
-          <tr>
+          <tr className={styles.ShoppingCartHeader}>
             <th>Product</th>
             <th>Quantity</th>
             <th>Price</th>
@@ -40,6 +41,7 @@ export default async function CartPage() {
               <tr
                 key={`item-${item.id}`}
                 data-test-id="cart-product-<product id>"
+                className={styles.ShoppingCartContent}
               >
                 <td> {item.name}</td>
                 <td data-test-id="cart-product-quantity-<product id>">
@@ -53,8 +55,8 @@ export default async function CartPage() {
               </tr>
             );
           })}
-          <tr>
-            <td></td>
+          <tr className={styles.ShoppingCartTotals}>
+            <td>Total</td>
             <td>{totalQuantity}</td>
             <td></td>
             <td data-test-id="cart-total">{totalPrice}</td>
