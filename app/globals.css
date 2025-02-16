@@ -95,9 +95,9 @@ nav {
   margin-left: auto;
 }
 .Hero {
-  background-color: #c5c6c5;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
 }
-
 body {
   font-family:
     'JosefinSansRegular',
@@ -119,7 +119,6 @@ body {
 main {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
-  padding: 0.5rem;
 }
 
 footer {

@@ -1,3 +1,78 @@
+.Hero {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+.HeroTitle {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: start;
+  justify-content: center;
+  padding-left: 2rem;
+}
+
+.HeroButton {
+  display: inline-block;
+  outline: 0;
+  cursor: pointer;
+  border: 2px solid #000;
+  border-radius: 3px;
+  color: #fff;
+  background: #000;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+  padding: 12px 20px;
+  text-align: center;
+  transition-duration: 0.15s;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover {
+    color: #000;
+    background: rgb(255, 218, 87);
+  }
+}
+
+.HeroImage {
+  margin: 2rem;
+  border-radius: 25px;
+  box-shadow: -10px 8px 0px rgb(196 181 253);
+}
+
+.InfoBanner {
+  background-color: #163043;
+  align-content: center;
+  justify-content: center;
+  color: white;
+  padding: 1rem;
+  font-size: 16px;
+  font-weight: 100;
+  box-shadow:
+    0 1.6px 3.6px 0 rgb(0 0 0 / 13%),
+    0 0.3px 0.9px 0 rgb(0 0 0 / 11%);
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.marqueeContent {
+  gap: 10rem;
+  display: flex;
+  padding-left: 100%;
+  min-width: 100%;
+  animation: marquee 10s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
 .page {
   --gray-rgb: 0, 0, 0;
   --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
@@ -158,11 +233,5 @@ a.secondary {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
   }
 }
