@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 import { getProduct } from '../../../database/products';
 import AddToCartForm from './AddToCartForm';
@@ -18,6 +19,12 @@ export default async function ProductPage(props) {
   console.log('Props:', singleProduct);
   return (
     <div>
+      <Image
+        src={`/images/${singleProduct.name.toLowerCase().replace(/\s+/g, '-')}.webp`}
+        alt={singleProduct.name}
+        width={300}
+        height={300}
+      />
       <h1>{singleProduct.name}</h1>
       <p>{singleProduct.description}</p>
       <div data-test-id="product-price">{singleProduct.price}</div>
