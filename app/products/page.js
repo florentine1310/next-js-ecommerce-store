@@ -12,14 +12,15 @@ export default function ProductsPage() {
   const products = getProducts();
   return (
     <div>
-      <h1>My plants</h1>
+      <h1 className={styles.ProductsHeadline}>My plants</h1>
       <div className={styles.ProductGrid}>
         {products.map((product) => {
           return (
-            <div className={styles.ProductTile} key={`product-${product.id}`}>
+            <div key={`product-${product.id}`}>
               <Link
                 data-test-id="product-<product id>"
                 href={`/products/${product.id}`}
+                className={styles.ProductTile}
               >
                 <Image
                   className={styles.ProductImage}

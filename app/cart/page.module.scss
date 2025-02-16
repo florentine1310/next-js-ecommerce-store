@@ -1,9 +1,13 @@
 .ShoppingCart {
-  margin: 2rem;
+  margin: 3rem;
   padding: 1rem;
   box-shadow:
     0 1px 3px rgba(0, 0, 0, 0.12),
     0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.ShoppingCartHeadline {
+  margin-left: 3rem;
 }
 
 .ShoppingCartHeader {
@@ -74,7 +78,7 @@
 
 .CheckoutButton {
   display: inline-block;
-  margin-left: 2rem;
+  margin-left: 3rem;
   margin-bottom: 2rem;
   outline: 0;
   border: 0;

@@ -24,7 +24,7 @@ export default async function CartPage() {
 
   return (
     <div>
-      <h1>Your Shopping Cart</h1>
+      <h1 className={styles.ShoppingCartHeadline}>Your Shopping Cart</h1>
       <table className={styles.ShoppingCart}>
         <thead>
           <tr className={styles.ShoppingCartHeader}>

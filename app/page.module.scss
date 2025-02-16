@@ -1,6 +1,8 @@
 .Hero {
   display: grid;
   grid-template-columns: 2fr 1fr;
+  padding-left: 8rem;
+  padding-right: 3rem;
 }
 
 .HeroTitle {
