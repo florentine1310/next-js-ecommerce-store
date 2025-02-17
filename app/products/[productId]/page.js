@@ -1,11 +1,11 @@
 import Image from 'next/image';
 import React from 'react';
-import { getProduct } from '../../../database/products';
+import { getProductInsecure } from '../../../database/products';
 import AddToCartForm from './AddToCartForm';
 import styles from './page.module.scss';
 
 export async function generateMetadata(props) {
-  const singleProduct = await getProduct(
+  const singleProduct = await getProductInsecure(
     Number((await props.params).productId),
   );
 
@@ -16,7 +16,9 @@ export async function generateMetadata(props) {
 }
 
 export default async function ProductPage(props) {
-  const singleProduct = getProduct(Number((await props.params).productId));
+  const singleProduct = await getProductInsecure(
+    Number((await props.params).productId),
+  );
   console.log('Props:', singleProduct);
   return (
     <div className={styles.ProductDetails}>

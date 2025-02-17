@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { getProducts } from '../../database/products';
+import { getProductsInsecure } from '../../database/products';
 import styles from './page.module.scss';
 
 export const metadata = {
@@ -8,8 +8,9 @@ export const metadata = {
   description: 'Find beautiful plants online',
 };
 
-export default function ProductsPage() {
-  const products = getProducts();
+export default async function ProductsPage() {
+  const products = await getProductsInsecure();
+
   return (
     <div>
       <h1 className={styles.ProductsHeadline}>My plants</h1>
