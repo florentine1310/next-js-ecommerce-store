@@ -5,6 +5,7 @@ const products = [
     description:
       'A hardy and low-maintenance indoor plant that purifies the air.',
     price: 19.99,
+    stock: 20,
   },
   {
     id: 2,
@@ -12,6 +13,7 @@ const products = [
     description:
       'A trendy and striking plant with large, glossy leaves perfect for home décor.',
     price: 49.99,
+    stock: 4,
   },
   {
     id: 3,
@@ -19,6 +21,7 @@ const products = [
     description:
       'An easy-to-care-for vine plant with trailing green leaves, ideal for beginners.',
     price: 14.99,
+    stock: 50,
   },
   {
     id: 4,
@@ -26,6 +29,7 @@ const products = [
     description:
       "Known for its large, unique split leaves, it's a bold statement plant for any room.",
     price: 39.99,
+    stock: 17,
   },
   {
     id: 5,
@@ -33,6 +37,7 @@ const products = [
     description:
       'A succulent known for its healing properties, perfect for sunny spots.',
     price: 12.99,
+    stock: 35,
   },
   {
     id: 6,
@@ -40,6 +45,7 @@ const products = [
     description:
       'A beautiful flowering plant with white blooms and air-purifying qualities.',
     price: 29.99,
+    stock: 13,
   },
   {
     id: 7,
@@ -47,6 +53,7 @@ const products = [
     description:
       'A resilient plant with waxy, hearty leaves that thrive in low-light conditions.',
     price: 24.99,
+    stock: 28,
   },
   {
     id: 8,
@@ -54,6 +61,7 @@ const products = [
     description:
       'A fast-growing, easy-care plant with arching green and white striped leaves.',
     price: 16.99,
+    stock: 28,
   },
 ];
 

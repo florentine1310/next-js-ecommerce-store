@@ -1,4 +1,14 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+### Next.js Ecommerce Shop Project for UpLeveled Full Stack Course
+
+This is a [Next.js](https://nextjs.org) project done for the UpLeveled Full Stack Course to practice the development of a full stack application.
+
+## Technologies
+
+- Next.js
+- Postgres
+- Jest
+- Playwright
+- Fly.io
 
 ## Getting Started
 
@@ -22,6 +32,34 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 
 ## Database Setup
 
+If you don't have PostgreSQL installed yet, follow the instructions from the PostgreSQL step in [UpLeveled's System Setup Instructions](https://github.com/upleveled/system-setup/blob/master/readme.md).
+
+Copy the `.env.example` file to a new file called `.env` (ignored from Git) and fill in the necessary information.
+
+Then, connect to the built-in `postgres` database as administrator in order to create the database:
+
+### Windows
+
+If it asks for a password, use `postgres`.
+
+```bash
+psql -U postgres
+```
+
+### macOS
+
+```bash
+psql postgres
+```
+
+### Linux
+
+```bash
+sudo -u postgres psql
+```
+
+Once you have connected, run the following to create the database:
+
 postgres=# CREATE DATABASE next_js_ecommerce_store_plantify;
 CREATE DATABASE
 postgres=# CREATE USER next_js_ecommerce_store_plantify WITH ENCRYPTED PASSWORD 'next_js_ecommerce_store_plantify';
@@ -34,17 +72,38 @@ next_js_ecommerce_store_plantify=# CREATE SCHEMA next_js_ecommerce_store_plantif
 CREATE SCHEMA
 next_js_ecommerce_store_plantify=#
 
-## Learn More
+Quit `psql` using the following command:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+\q
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+On Linux, it is [best practice to create an operating system user for each database](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_and_using_database_servers/using-postgresql_configuring-and-using-database-servers#con_postgresql-users_using-postgresql), to ensure that the operating system user can only access the single database and no other system resources. A different password is needed on Linux because [passwords of operating system users cannot contain the user name](https://github.com/upleveled/system-setup/issues/74). First, generate a random password and copy it:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+openssl rand -hex 16
+```
 
-## Deploy on Vercel
+Then create the user, using the database user name from the previous section above. When you are prompted to create a password for the user, paste in the generated password.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+sudo adduser <user name>
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Once you're ready to use the new user, reconnect using the following command.
+
+**Windows and macOS:**
+
+```bash
+psql -U <user name> <database name>
+```
+
+**Linux:**
+
+```bash
+sudo -u <user name> psql -U <user name> <database name>
+
+## Tests
+
+## Deployment
+```
