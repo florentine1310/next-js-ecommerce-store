@@ -1,5 +1,13 @@
 import type { Sql } from 'postgres';
 
+export type Product = {
+  id: number;
+  name: string;
+  description: string;
+  price: string;
+  stock: number;
+};
+
 export async function up(sql: Sql) {
   await sql`
     CREATE TABLE products (
