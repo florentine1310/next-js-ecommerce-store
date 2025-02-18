@@ -1,6 +1,7 @@
+import './globals.css';
+import { cookies } from 'next/headers';
 import Image from 'next/image';
 import Link from 'next/link';
-import styles from './globals.css';
 
 export const dynamic = 'force-dynamic';
 
@@ -12,7 +13,12 @@ export const metadata = {
   description: 'Find beautiful house plants online',
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const cartItemsCookie = (await cookies()).get('cart');
+
+  const cartItems = !cartItemsCookie ? [] : JSON.parse(cartItemsCookie.value);
+  const totalQuantity = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+
   return (
     <html lang="en">
       <body>
@@ -35,12 +41,19 @@ export default function RootLayout({ children }) {
                 href="/cart"
                 className="ShoppingCart"
               >
-                <Image
-                  src="/icons/cart-icon.svg"
-                  alt="Logo"
-                  width={90}
-                  height={90}
-                />
+                <div className="CartIcon">
+                  <Image
+                    src="/icons/cart-icon.svg"
+                    alt="Logo"
+                    width={90}
+                    height={90}
+                  />
+                  {totalQuantity > 0 && (
+                    <span data-test-id="cart-count" className="CartBadge">
+                      {totalQuantity}
+                    </span>
+                  )}
+                </div>
               </Link>
             </nav>
           </div>

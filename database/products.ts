@@ -15,20 +15,28 @@ type Product = {
   id: number;
   name: string;
   description: string;
-  price: number;
+  price: string;
   stock: number;
 };
 
 export const getProductsInsecure = cache(async () => {
   const products = await sql<Product[]>`
-    SELECT * FROM products
-    `;
+    SELECT
+      *
+    FROM
+      products
+  `;
   return products;
 });
 
 export const getProductInsecure = cache(async (id: number) => {
   const [product] = await sql<Product[]>`
-    SELECT * FROM products WHERE id=${id}
-    `;
+    SELECT
+      *
+    FROM
+      products
+    WHERE
+      id = ${id}
+  `;
   return product;
 });

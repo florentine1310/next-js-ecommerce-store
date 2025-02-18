@@ -96,7 +96,26 @@ nav {
 .ShoppingCart {
   margin-left: auto;
   margin-right: 2rem;
+  position: relative;
 }
+
+.CartIcon {
+  position: relative;
+  display: inline-block;
+}
+
+.CartBadge {
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  background-color: #e53935;
+  font-size: 14px;
+  padding: 4px 8px;
+  border-radius: 50%;
+  min-width: 20px;
+  text-align: center;
+}
+
 .Hero {
   display: grid;
   grid-template-columns: 2fr 1fr;
