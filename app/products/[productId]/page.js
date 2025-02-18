@@ -33,6 +33,7 @@ export default async function ProductPage(props) {
         <h1>{singleProduct.name}</h1>
         <h3>Product Description:</h3>
         <p>{singleProduct.description}</p>
+        <div>Stock: {singleProduct.stock} items</div>
         <div data-test-id="product-price" className={styles.Price}>
           {singleProduct.price}
         </div>

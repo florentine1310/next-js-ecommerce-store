@@ -60,7 +60,7 @@ export default async function CartPage() {
               <tr className={styles.ShoppingCartTotals}>
                 <td>Total</td>
                 <td>{totalQuantity}</td>
-                <td></td>
+                <td />
                 <td data-test-id="cart-total">{totalPrice}</td>
               </tr>
             </tbody>
