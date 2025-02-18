@@ -25,47 +25,53 @@ export default async function CartPage() {
   return (
     <div>
       <h1 className={styles.ShoppingCartHeadline}>Your Shopping Cart</h1>
-      <table className={styles.ShoppingCart}>
-        <thead>
-          <tr className={styles.ShoppingCartHeader}>
-            <th>Product</th>
-            <th>Quantity</th>
-            <th>Price</th>
-            <th>Subtotal</th>
-            <th> </th>
-          </tr>
-        </thead>
-        <tbody>
-          {cartItems.map((item) => {
-            return (
-              <tr
-                key={`item-${item.id}`}
-                data-test-id="cart-product-<product id>"
-                className={styles.ShoppingCartContent}
-              >
-                <td> {item.name}</td>
-                <td data-test-id="cart-product-quantity-<product id>">
-                  {item.quantity}
-                </td>
-                <td> {item.price}</td>
-                <td>{item.quantity * item.price}</td>
-                <td>
-                  <CartItemRemoveButton itemId={item.id} />
-                </td>
+      {totalQuantity > 0 ? (
+        <div>
+          <table className={styles.ShoppingCart}>
+            <thead>
+              <tr className={styles.ShoppingCartHeader}>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Subtotal</th>
+                <th> </th>
               </tr>
-            );
-          })}
-          <tr className={styles.ShoppingCartTotals}>
-            <td>Total</td>
-            <td>{totalQuantity}</td>
-            <td></td>
-            <td data-test-id="cart-total">{totalPrice}</td>
-          </tr>
-        </tbody>
-      </table>
-      <Link href="/checkout">
-        <CheckoutButton />
-      </Link>
+            </thead>
+            <tbody>
+              {cartItems.map((item) => {
+                return (
+                  <tr
+                    key={`item-${item.id}`}
+                    data-test-id="cart-product-<product id>"
+                    className={styles.ShoppingCartContent}
+                  >
+                    <td> {item.name}</td>
+                    <td data-test-id="cart-product-quantity-<product id>">
+                      {item.quantity}
+                    </td>
+                    <td> {item.price}</td>
+                    <td>{item.quantity * item.price}</td>
+                    <td>
+                      <CartItemRemoveButton itemId={item.id} />
+                    </td>
+                  </tr>
+                );
+              })}
+              <tr className={styles.ShoppingCartTotals}>
+                <td>Total</td>
+                <td>{totalQuantity}</td>
+                <td></td>
+                <td data-test-id="cart-total">{totalPrice}</td>
+              </tr>
+            </tbody>
+          </table>
+          <Link href="/checkout">
+            <CheckoutButton />
+          </Link>
+        </div>
+      ) : (
+        <h2 className={styles.EmptyCart}>Your shopping cart is empty</h2>
+      )}
     </div>
   );
 }
