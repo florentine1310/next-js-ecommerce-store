@@ -32,6 +32,28 @@ export default function Home() {
       <div>
         <h2>Bestsellers</h2>
       </div>
+      <div>
+        <h3>🌱 Step 1: Discover Your Perfect Plant</h3>
+        <p>
+          Browse through our vibrant selection of plants in our webshop. Whether
+          you're a seasoned plant parent or a first-timer, we have the perfect
+          green companion waiting for you. Find your favorite plants and add
+          them to your cart with just a few clicks!
+        </p>
+        <h3>🚚 Step 2: Check Out and Get Your Plants Delivered</h3>
+        <p>
+          Once you've selected your new plant friends, simply proceed to
+          checkout. Pay securely and relax as we deliver your plants right to
+          your door, ready to thrive in your home.
+        </p>
+        <h3>💧 Step 3: Care for Your Plants and Enjoy!</h3>
+        <p>
+          Water them regularly and watch them grow! With a little love and care,
+          your new plants will bring life and beauty to your home. Enjoy your
+          thriving green space and the joy of having a plant companion by your
+          side.
+        </p>
+      </div>
     </div>
   );
 }

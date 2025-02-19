@@ -11,7 +11,7 @@ const products = [
   },
   {
     id: 2,
-    name: 'Fiddle Leaf Fig ',
+    name: 'Fiddle Leaf Fig',
     description:
       'A trendy and striking plant with large, glossy leaves perfect for home décor. ',
     price: 50.0,
@@ -43,7 +43,7 @@ const products = [
   },
   {
     id: 6,
-    name: 'Peace Lily ',
+    name: 'Peace Lily',
     description:
       'A beautiful flowering plant with white blooms and air-purifying qualities. ',
     price: 30.0,
