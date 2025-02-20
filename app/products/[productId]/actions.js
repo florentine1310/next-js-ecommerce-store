@@ -1,6 +1,7 @@
 'use server';
 
 import { cookies } from 'next/headers';
+import { parseJson } from '../../../util/json';
 
 export async function createCookie(value) {
   // 1. Get existing cookie
@@ -9,7 +10,7 @@ export async function createCookie(value) {
 
   // 2. Parse cookie value
 
-  const cartItems = !cartItemsCookie ? [] : JSON.parse(cartItemsCookie.value);
+  const cartItems = !cartItemsCookie ? [] : parseJson(cartItemsCookie.value);
 
   // 3. Find cookie value
 
@@ -27,5 +28,12 @@ export async function createCookie(value) {
   } else {
     itemToUpdate.quantity = value.quantity;
   }
-  (await cookies()).set('cart', JSON.stringify(cartItems));
+  (await cookies()).set({
+    name: 'cart',
+    value: JSON.stringify(cartItems),
+    httpOnly: true,
+    secure: true,
+  });
 }
+
+//'cart', JSON.stringify(cartItems)
