@@ -1,5 +1,7 @@
 .ProductsHeadline {
   margin-left: 3rem;
+  background-image: url('../../public/images/background-pattern-subpages.png');
+  min-height: 125px;
 }
 .AddToCartButton {
   display: inline-block;
@@ -12,7 +14,20 @@
   border-radius: 6px;
   color: #fff;
   height: 36px;
-  font-size: 16px;
+  font-family:
+    'JosefinSansThin',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    'Roboto',
+    'Oxygen',
+    'Ubuntu',
+    'Cantarell',
+    'Fira Sans',
+    'Droid Sans',
+    'Helvetica Neue',
+    sans-serif;
+  font-size: 18px;
   text-shadow: 0 1px 0 rgb(0 0 0 / 40%);
   transition:
     box-shadow 0.15s ease,

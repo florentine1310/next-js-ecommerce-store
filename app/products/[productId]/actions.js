@@ -35,5 +35,3 @@ export async function createCookie(value) {
     secure: true,
   });
 }
-
-//'cart', JSON.stringify(cartItems)
