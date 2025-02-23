@@ -1,4 +1,4 @@
-import 'server-only';
+'use server';
 import { config } from 'dotenv-safe';
 import postgres, { type Sql } from 'postgres';
 import postgresConfig from '../ley.config';

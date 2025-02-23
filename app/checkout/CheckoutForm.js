@@ -1,6 +1,8 @@
 'use client';
 
+import Link from 'next/link';
 import React, { useState } from 'react';
+import ConfirmOrderButton from './ConfirmOrderButton';
 import styles from './page.module.scss';
 
 export default function CheckoutForm() {
@@ -19,13 +21,8 @@ export default function CheckoutForm() {
     securityCode: '',
   });
 
-  function handleOrderSubmit() {
-    console.log('Order Details:', customer);
-    console.log('Payment Details', paymentDetails);
-  }
-
   return (
-    <div>
+    <div className={styles.CheckoutFormContainer}>
       <form className={styles.CheckoutForm}>
         <h2>Delivery</h2>
         <label className={styles.CheckoutInputFields}>
@@ -113,6 +110,8 @@ export default function CheckoutForm() {
             }}
           />
         </label>
+      </form>
+      <form className={styles.CheckoutForm}>
         <h2>Payment</h2>
         <label className={styles.CheckoutInputFields}>
           Credit Card:
@@ -159,12 +158,9 @@ export default function CheckoutForm() {
             }}
           />
         </label>
-        <button
-          data-test-id="checkout-confirm-order"
-          formAction={() => handleOrderSubmit()}
-        >
-          Confirm Order
-        </button>
+        <Link className={styles.ConfirmOrderLink} href="/thank-you/">
+          <ConfirmOrderButton />
+        </Link>
       </form>
     </div>
   );

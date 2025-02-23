@@ -1,3 +1,5 @@
+import styles from './page.module.scss';
+
 export const metadata = {
   title: 'Thank You',
   description: 'Order successfully submitted',
@@ -6,7 +8,11 @@ export const metadata = {
 export default function ThankYouPage() {
   return (
     <div>
-      <h1>Thank you for your order</h1>
+      <h1 className={styles.ThankYouHeadline}>Thank you for your order</h1>
+      <p>
+        Your order has been successfully placed. You will receive an email
+        confirmation soon.
+      </p>
     </div>
   );
 }

@@ -4,6 +4,11 @@
   min-height: 125px;
 }
 
+.CheckoutFormContainer {
+  display: flex;
+  justify-items: center;
+}
+
 .CheckoutForm {
   display: flex;
   flex-direction: column;
@@ -18,6 +23,73 @@
   box-shadow:
     0 1px 3px rgba(0, 0, 0, 0.12),
     0 1px 2px rgba(0, 0, 0, 0.24);
+
+  input::placeholder {
+    color: gray;
+    font-style: italic;
+    font-family:
+      'JosefinSansThin',
+      -apple-system,
+      BlinkMacSystemFont,
+      'Segoe UI',
+      'Roboto',
+      'Oxygen',
+      'Ubuntu',
+      'Cantarell',
+      'Fira Sans',
+      'Droid Sans',
+      'Helvetica Neue',
+      sans-serif;
+    font-size: 14px;
+    opacity: 0.9;
+  }
+
+  .ConfirmOrderLink {
+    align-self: center;
+  }
+
+  .ConfirmOrderButton {
+    display: inline-block;
+    margin: 2rem;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    will-change: box-shadow, transform;
+    background: radial-gradient(100% 100% at 100% 0%, #b3a1f1 0%, #007f73 100%);
+    padding: 0 24px;
+    border-radius: 6px;
+    color: #fff;
+    height: 36px;
+    font-family:
+      'JosefinSansThin',
+      -apple-system,
+      BlinkMacSystemFont,
+      'Segoe UI',
+      'Roboto',
+      'Oxygen',
+      'Ubuntu',
+      'Cantarell',
+      'Fira Sans',
+      'Droid Sans',
+      'Helvetica Neue',
+      sans-serif;
+    font-size: 18px;
+    text-shadow: 0 1px 0 rgb(0 0 0 / 40%);
+    transition:
+      box-shadow 0.15s ease,
+      transform 0.15s ease;
+    &:hover {
+      box-shadow:
+        0px 4px 8px rgb(45 35 66 / 40%),
+        0px 7px 13px -3px rgb(45 35 66 / 30%),
+        inset 0px -2px 0px #8c8c8c;
+      transform: translateY(-2px);
+    }
+    &:active {
+      box-shadow: inset 0px 3px 7px #8c8c8c;
+      transform: translateY(2px);
+    }
+  }
 
   input {
     border: 0;

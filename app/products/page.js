@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { getProductsInsecure } from '../../database/products';
+import AddToCartButton from './AddToCartButton';
 import styles from './page.module.scss';
 
 export const metadata = {
@@ -17,11 +18,10 @@ export default async function ProductsPage() {
       <div className={styles.ProductGrid}>
         {products.map((product) => {
           return (
-            <div key={`product-${product.id}`}>
+            <div key={`product-${product.id}`} className={styles.ProductTile}>
               <Link
                 data-test-id="product-<product id>"
                 href={`/products/${product.id}`}
-                className={styles.ProductTile}
               >
                 <Image
                   className={styles.ProductImage}
@@ -32,12 +32,10 @@ export default async function ProductsPage() {
                 />
                 <h3>{product.name}</h3>
                 <div className={styles.price}>{product.price}</div>
-                <div>
-                  <button className={styles.AddToCartButton}>
-                    Add To Cart
-                  </button>
-                </div>
               </Link>
+              <div>
+                <AddToCartButton selectedProduct={product} />
+              </div>
             </div>
           );
         })}

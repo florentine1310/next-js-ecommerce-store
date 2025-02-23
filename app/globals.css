@@ -32,6 +32,7 @@ h1 {
   font-size: 48px;
   font-weight: 100;
   padding-top: 1rem;
+  color: #163043;
 }
 
 h2 {
@@ -160,6 +161,7 @@ main {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
   flex: 1;
+  min-height: 100vh;
 }
 
 footer {
