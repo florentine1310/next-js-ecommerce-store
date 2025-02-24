@@ -9,13 +9,25 @@ export const metadata = {
   description: 'Your Plantify shopping cart',
 };
 
+type CartItem = {
+  id: number;
+  name: string;
+  price: number;
+  quantity: number;
+};
+
 export default async function CartPage() {
   const cartItemsCookie = (await cookies()).get('cart');
 
-  const cartItems = !cartItemsCookie ? [] : JSON.parse(cartItemsCookie.value);
+  const cartItems: CartItem[] = !cartItemsCookie
+    ? []
+    : (JSON.parse(cartItemsCookie.value) as CartItem[]);
 
   // Totals calculation
-  const totalQuantity = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+  const totalQuantity = cartItems.reduce(
+    (acc: number, item: CartItem) => acc + item.quantity,
+    0,
+  );
   const totalPrice = Number(
     cartItems
       .reduce((acc, item) => acc + item.price * item.quantity, 0)
@@ -42,11 +54,11 @@ export default async function CartPage() {
                 return (
                   <tr
                     key={`item-${item.id}`}
-                    data-test-id="cart-product-<product id>"
+                    data-test-id={`cart-product-${item.id}`}
                     className={styles.ShoppingCartContent}
                   >
                     <td> {item.name}</td>
-                    <td data-test-id="cart-product-quantity-<product id>">
+                    <td data-test-id={`cart-product-quantity-${item.id}`}>
                       {item.quantity}
                     </td>
                     <td> {item.price}</td>
