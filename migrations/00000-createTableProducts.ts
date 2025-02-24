@@ -14,8 +14,8 @@ export async function up(sql: Sql) {
       id integer PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
       name varchar(50) NOT NULL,
       description varchar(200) NOT NULL,
-      price numeric(10, 2),
-      stock bigint
+      price numeric(10, 2) NOT NULL,
+      stock integer NOT NULL
     )
   `;
 }

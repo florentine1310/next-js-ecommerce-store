@@ -3,14 +3,23 @@
 import { cookies } from 'next/headers';
 import { parseJson } from '../../../util/json';
 
-export async function createCookie(value) {
+export type CartCookie = {
+  id: number;
+  name: string;
+  price: string;
+  quantity: number;
+};
+
+export async function createCookie(value: CartCookie) {
   // 1. Get existing cookie
 
   const cartItemsCookie = (await cookies()).get('cart');
 
   // 2. Parse cookie value
 
-  const cartItems = !cartItemsCookie ? [] : parseJson(cartItemsCookie.value);
+  const cartItems = !cartItemsCookie
+    ? []
+    : (parseJson(cartItemsCookie.value) as CartCookie[] | undefined) || [];
 
   // 3. Find cookie value
 

@@ -2,6 +2,7 @@ import './globals.css';
 import { cookies } from 'next/headers';
 import Image from 'next/image';
 import Link from 'next/link';
+import type { ReactNode } from 'react';
 
 export const dynamic = 'force-dynamic';
 
@@ -13,11 +14,27 @@ export const metadata = {
   description: 'Find beautiful house plants online',
 };
 
-export default async function RootLayout({ children }) {
+type Props = {
+  children: ReactNode;
+};
+
+type CartItem = {
+  id: number;
+  name: string;
+  price: string;
+  quantity: number;
+};
+
+export default async function RootLayout({ children }: Props) {
   const cartItemsCookie = (await cookies()).get('cart');
 
-  const cartItems = !cartItemsCookie ? [] : JSON.parse(cartItemsCookie.value);
-  const totalQuantity = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+  const cartItems: CartItem[] = !cartItemsCookie
+    ? []
+    : (JSON.parse(cartItemsCookie.value) as CartItem[]);
+  const totalQuantity = cartItems.reduce(
+    (acc: number, item: CartItem) => acc + item.quantity,
+    0,
+  );
 
   return (
     <html lang="en">

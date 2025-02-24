@@ -1,10 +1,15 @@
 'use client';
 
 import { useState } from 'react';
+import type { Product } from '../../../migrations/00000-createTableProducts';
 import { createCookie } from './actions';
 import styles from './page.module.scss';
 
-export default function AddToCartForm({ selectedProduct }) {
+type Props = {
+  selectedProduct: Product;
+};
+
+export default function AddToCartForm({ selectedProduct }: Props) {
   const [quantity, setQuantity] = useState(1);
 
   function handleIncrease() {
