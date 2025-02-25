@@ -102,8 +102,8 @@ psql -U <user name> <database name>
 
 ```bash
 sudo -u <user name> psql -U <user name> <database name>
-
+```
 ## Tests
 
 ## Deployment
-```
+Deployed the project on Fly.io
