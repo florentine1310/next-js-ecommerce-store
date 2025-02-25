@@ -1,9 +1,10 @@
 'use server';
-import { config } from 'dotenv-safe';
+
 import postgres, { type Sql } from 'postgres';
 import postgresConfig from '../ley.config';
+import { setEnvironmentVariables } from '../util/config';
 
-config();
+setEnvironmentVariables();
 
 declare namespace globalThis {
   let postgresSqlClient: Sql;

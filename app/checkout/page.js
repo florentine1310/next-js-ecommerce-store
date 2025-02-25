@@ -1,6 +1,4 @@
-import Link from 'next/link';
 import CheckoutForm from './CheckoutForm';
-import ConfirmOrderButton from './ConfirmOrderButton';
 import styles from './page.module.scss';
 
 export const metadata = {

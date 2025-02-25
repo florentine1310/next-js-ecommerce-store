@@ -1,7 +1,6 @@
 'use client';
 
-import Link from 'next/link';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import ConfirmOrderButton from './ConfirmOrderButton';
 import styles from './page.module.scss';
 
