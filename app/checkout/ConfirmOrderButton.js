@@ -1,11 +1,16 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import React from 'react';
+import { deleteCookie } from './actions';
 import styles from './page.module.scss';
 
-function handleOrderSubmit() {}
-
 export default function ConfirmOrderButton() {
+  const router = useRouter();
+  async function handleOrderSubmit() {
+    await deleteCookie();
+    router.push('/thank-you');
+  }
   return (
     <div>
       <button

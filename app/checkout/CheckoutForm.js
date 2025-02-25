@@ -158,9 +158,7 @@ export default function CheckoutForm() {
             }}
           />
         </label>
-        <Link className={styles.ConfirmOrderLink} href="/thank-you/">
-          <ConfirmOrderButton />
-        </Link>
+        <ConfirmOrderButton className={styles.ConfirmOrderLink} />
       </form>
     </div>
   );

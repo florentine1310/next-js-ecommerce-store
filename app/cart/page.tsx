@@ -62,7 +62,7 @@ export default async function CartPage() {
                       {item.quantity}
                     </td>
                     <td> {item.price}</td>
-                    <td>{item.quantity * item.price}</td>
+                    <td>{(item.quantity * item.price).toFixed(2)}</td>
                     <td>
                       <CartItemRemoveButton itemId={item.id} />
                     </td>
