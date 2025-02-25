@@ -1,7 +1,7 @@
 'use client';
 
 import type { Product } from '../../migrations/00000-createTableProducts';
-import { createCookie } from './actions';
+import { createOrUpdateCookie } from './actions';
 import styles from './page.module.scss';
 
 type Props = {
@@ -9,13 +9,10 @@ type Props = {
 };
 
 export default function AddToCartButton({ selectedProduct }: Props) {
-  const quantity = 1;
-
-  const cookieValue = {
+  const productToUpdate = {
     id: selectedProduct.id,
     name: selectedProduct.name,
     price: selectedProduct.price,
-    quantity: quantity,
   };
 
   return (
@@ -23,7 +20,7 @@ export default function AddToCartButton({ selectedProduct }: Props) {
       <form>
         <button
           data-test-id="product-add-to-cart"
-          formAction={() => createCookie(cookieValue)}
+          formAction={() => createOrUpdateCookie({ productToUpdate })}
           className={styles.AddToCartButton}
         >
           Add to Cart

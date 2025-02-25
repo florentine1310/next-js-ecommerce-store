@@ -31,6 +31,7 @@ export default async function ProductPage(props: Props) {
 
   console.log('Props:', singleProduct);
   if (!singleProduct) notFound();
+
   return (
     <div className={styles.ProductDetails}>
       <Image

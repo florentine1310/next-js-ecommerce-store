@@ -19,7 +19,7 @@ export async function createCookie(value: CartCookie) {
 
   const cartItems = !cartItemsCookie
     ? []
-    : (parseJson(cartItemsCookie.value) as CartCookie[] | undefined) || [];
+    : parseJson(cartItemsCookie.value) || [];
 
   // 3. Find cookie value
 
@@ -35,7 +35,7 @@ export async function createCookie(value: CartCookie) {
       quantity: value.quantity,
     });
   } else {
-    itemToUpdate.quantity = value.quantity;
+    itemToUpdate.quantity += value.quantity;
   }
   (await cookies()).set({
     name: 'cart',
