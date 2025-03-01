@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import type { Product } from '../../../migrations/00000-createTableProducts';
+import reduceCookieValue from '../../../util/reduceCookieValue';
 import { createCookie } from './actions';
 import styles from './page.module.scss';
 
@@ -22,12 +23,7 @@ export default function AddToCartForm({ selectedProduct }: Props) {
     }
   }
 
-  const cookieValue = {
-    id: selectedProduct.id,
-    name: selectedProduct.name,
-    price: selectedProduct.price,
-    quantity: quantity,
-  };
+  const cookieValue = reduceCookieValue(selectedProduct, quantity);
 
   return (
     <div>

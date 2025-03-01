@@ -1,16 +1,17 @@
 'use server';
 
 import { cookies } from 'next/headers';
+import addOrUpdateCookieItem from '../../../util/addOrUpdateCookieItem';
 import { parseJson } from '../../../util/json';
 
 export type CartCookie = {
   id: number;
   name: string;
-  price: string;
+  price: number;
   quantity: number;
 };
 
-export async function createCookie(value: CartCookie) {
+export async function createCookie(cookieValue: CartCookie) {
   // 1. Get existing cookie
 
   const cartItemsCookie = (await cookies()).get('cart');
@@ -21,25 +22,13 @@ export async function createCookie(value: CartCookie) {
     ? []
     : parseJson(cartItemsCookie.value) || [];
 
-  // 3. Find cookie value
+  // 3. Set or update cookie value
 
-  const itemToUpdate = cartItems.find((cartItem) => {
-    return cartItem.id === value.id;
-  });
+  const cookieArray = addOrUpdateCookieItem(cartItems, cookieValue);
 
-  if (!itemToUpdate) {
-    cartItems.push({
-      id: value.id,
-      name: value.name,
-      price: value.price,
-      quantity: value.quantity,
-    });
-  } else {
-    itemToUpdate.quantity += value.quantity;
-  }
   (await cookies()).set({
     name: 'cart',
-    value: JSON.stringify(cartItems),
+    value: JSON.stringify(cookieArray),
     httpOnly: true,
     secure: true,
   });

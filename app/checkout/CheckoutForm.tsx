@@ -4,7 +4,11 @@ import { useState } from 'react';
 import ConfirmOrderButton from './ConfirmOrderButton';
 import styles from './page.module.scss';
 
-export default function CheckoutForm() {
+type Props = {
+  orderTotal: number;
+};
+
+export default function CheckoutForm({ orderTotal }: Props) {
   const [customer, setCustomer] = useState({
     firstName: '',
     lastName: '',
@@ -111,6 +115,8 @@ export default function CheckoutForm() {
         </label>
       </form>
       <form className={styles.CheckoutForm}>
+        <h2>Your Order Total: {orderTotal} </h2>
+        <br />
         <h2>Payment</h2>
         <label className={styles.CheckoutInputFields}>
           Credit Card:
@@ -157,7 +163,9 @@ export default function CheckoutForm() {
             }}
           />
         </label>
-        <ConfirmOrderButton className={styles.ConfirmOrderLink} />
+        <div className={styles.ConfirmOrderLink}>
+          <ConfirmOrderButton />
+        </div>
       </form>
     </div>
   );

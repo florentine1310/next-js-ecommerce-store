@@ -103,7 +103,21 @@ psql -U <user name> <database name>
 ```bash
 sudo -u <user name> psql -U <user name> <database name>
 ```
+
 ## Tests
 
+### Jest
+
+```bash
+pnpm jest
+```
+
+### Playwright
+
+```bash
+pnpm playwright test
+```
+
 ## Deployment
+
 Deployed the project on Fly.io

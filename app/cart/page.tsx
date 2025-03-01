@@ -1,5 +1,6 @@
 import { cookies } from 'next/headers';
 import Link from 'next/link';
+import { calculateOrderTotal } from '../../util/calculateOrderTotal';
 import CartItemRemoveButton from './CartItemRemoveButton';
 import CheckoutButton from './CheckoutButton';
 import styles from './page.module.scss';
@@ -28,11 +29,7 @@ export default async function CartPage() {
     (acc: number, item: CartItem) => acc + item.quantity,
     0,
   );
-  const totalPrice = Number(
-    cartItems
-      .reduce((acc, item) => acc + item.price * item.quantity, 0)
-      .toFixed(2),
-  );
+  const totalPrice = calculateOrderTotal(cartItems);
 
   return (
     <div>
