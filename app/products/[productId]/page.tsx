@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
-import React from 'react';
 import { getProductInsecure } from '../../../database/products';
 import AddToCartForm from './AddToCartForm';
 import styles from './page.module.scss';
@@ -35,6 +34,7 @@ export default async function ProductPage(props: Props) {
   return (
     <div className={styles.ProductDetails}>
       <Image
+        data-test-id="product-image"
         src={`/images/${singleProduct.name.toLowerCase().replace(/\s+/g, '-')}.webp`}
         alt={singleProduct.name}
         width={400}
