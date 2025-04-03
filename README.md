@@ -1,11 +1,17 @@
 ### Next.js Ecommerce Shop Project for UpLeveled Full Stack Course
 
-This is a [Next.js](https://nextjs.org) project done for the UpLeveled Full Stack Course to practice the development of a full stack application.
+This is a [Next.js](https://nextjs.org) Ecommerce project done for the UpLeveled Full Stack Course to practice the development of a full stack application.
+
+<img width="1402" alt="image" src="https://github.com/user-attachments/assets/0308eb2e-6171-43a8-b327-4271ac42ca14" />
+
+<img width="1407" alt="image" src="https://github.com/user-attachments/assets/9944449b-e029-42ab-bb96-c0696174a093" />
+
 
 ## Technologies
 
 - Next.js
-- Postgres
+- PostgreSQL
+- SCSS
 - Jest
 - Playwright
 - Fly.io
@@ -40,6 +46,7 @@ sudo -u postgres psql
 
 Once you have connected, run the following to create the database:
 
+```
 postgres=# CREATE DATABASE next_js_ecommerce_store_plantify;
 CREATE DATABASE
 postgres=# CREATE USER next_js_ecommerce_store_plantify WITH ENCRYPTED PASSWORD 'next_js_ecommerce_store_plantify';
@@ -51,6 +58,7 @@ Sie sind jetzt verbunden mit der Datenbank »next_js_ecommerce_store_plantify« 
 next_js_ecommerce_store_plantify=# CREATE SCHEMA next_js_ecommerce_store_plantify AUTHORIZATION next_js_ecommerce_store_plantify;
 CREATE SCHEMA
 next_js_ecommerce_store_plantify=#
+```
 
 Quit `psql` using the following command:
 
