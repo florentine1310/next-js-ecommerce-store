@@ -29,7 +29,12 @@ export default function AddToCartForm({ selectedProduct }: Props) {
     <div>
       <div className={styles.QuantitySelector}>
         <button onClick={handleDecrease}> - </button>
-        <div data-test-id="product-quantity">{quantity}</div>
+        <input
+          type="number"
+          value={quantity}
+          readOnly
+          data-test-id="product-quantity"
+        />
         <button onClick={handleIncrease}> + </button>
       </div>
       <form>

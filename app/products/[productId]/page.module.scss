@@ -99,8 +99,13 @@
       outline: 1px solid transparent;
     }
   }
-  div {
+  input {
     text-align: center;
-    padding: 2px 10px;
+    font-size: 14px;
+    font-weight: 200;
+    padding-left: 8px;
+    margin: 5px;
+    width: 2.5rem;
+    height: 2rem;
   }
 }
