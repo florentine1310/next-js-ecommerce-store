@@ -46,6 +46,7 @@ sudo -u postgres psql
 
 Once you have connected, run the following to create the database:
 
+```
 postgres=# CREATE DATABASE next_js_ecommerce_store_plantify;
 CREATE DATABASE
 postgres=# CREATE USER next_js_ecommerce_store_plantify WITH ENCRYPTED PASSWORD 'next_js_ecommerce_store_plantify';
@@ -57,6 +58,7 @@ Sie sind jetzt verbunden mit der Datenbank »next_js_ecommerce_store_plantify« 
 next_js_ecommerce_store_plantify=# CREATE SCHEMA next_js_ecommerce_store_plantify AUTHORIZATION next_js_ecommerce_store_plantify;
 CREATE SCHEMA
 next_js_ecommerce_store_plantify=#
+```
 
 Quit `psql` using the following command:
 
