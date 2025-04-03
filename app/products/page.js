@@ -20,7 +20,7 @@ export default async function ProductsPage() {
           return (
             <div key={`product-${product.id}`} className={styles.ProductTile}>
               <Link
-                data-test-id="product-<product id>"
+                data-test-id={`product-${product.id}`}
                 href={`/products/${product.id}`}
               >
                 <Image
