@@ -29,9 +29,9 @@ jobs:
       # Use the official setup-node action (sets up Node.js):
       # https://github.com/actions/setup-node
       - name: Use Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v3
         with:
-          node-version: 'lts/*'
+          node-version: '20'
           cache: 'pnpm'
 
       - name: Install dependencies
