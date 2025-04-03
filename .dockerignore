@@ -22,7 +22,7 @@ build
 # Tests
 
 playwright
-playwright.config.ts
+playwright.config.js
 coverage
 \*/**tests**
 jest.config.js
