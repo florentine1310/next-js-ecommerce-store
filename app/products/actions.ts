@@ -3,13 +3,6 @@
 import { cookies } from 'next/headers';
 import { parseJson } from '../../util/json';
 
-type CartItem = {
-  id: number;
-  name: string;
-  price: string;
-  quantity: number;
-};
-
 type Props = {
   productToUpdate: {
     id: number;
