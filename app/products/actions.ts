@@ -25,21 +25,19 @@ export async function createOrUpdateCookie(props: Props) {
 
   // 2. Parse cookie value
 
-  const cartItems: CartItem[] = !cartItemsCookie
-    ? []
-    : (parseJson(cartItemsCookie.value) as CartItem[]);
+  const cartItems = !cartItemsCookie ? [] : parseJson(cartItemsCookie.value);
 
   // 3. Find cookie value
 
-  const itemToUpdate = cartItems.find((cartItem) => {
+  const itemToUpdate = cartItems?.find((cartItem) => {
     return cartItem.id === props.productToUpdate.id;
   });
 
   if (!itemToUpdate) {
-    cartItems.push({
+    cartItems?.push({
       id: props.productToUpdate.id,
       name: props.productToUpdate.name,
-      price: props.productToUpdate.price,
+      price: Number(props.productToUpdate.price),
       quantity: 1,
     });
   } else {
