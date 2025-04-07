@@ -104,7 +104,7 @@ export default function CheckoutForm({ orderTotal }: Props) {
         <label className={styles.CheckoutInputFields}>
           Country:
           <input
-            data-test-id="checkout-postal-country"
+            data-test-id="checkout-country"
             name="country"
             value={customer.country}
             placeholder="Enter country"
@@ -121,7 +121,7 @@ export default function CheckoutForm({ orderTotal }: Props) {
         <label className={styles.CheckoutInputFields}>
           Credit Card:
           <input
-            data-test-id="checkout-postal-credit-card"
+            data-test-id="checkout-credit-card"
             name="creditCard"
             value={paymentDetails.creditCard}
             placeholder="Enter credit card"
