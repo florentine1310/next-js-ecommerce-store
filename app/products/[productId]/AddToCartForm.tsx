@@ -30,10 +30,16 @@ export default function AddToCartForm({ selectedProduct }: Props) {
       <div className={styles.QuantitySelector}>
         <button onClick={handleDecrease}> - </button>
         <input
-          type="number"
-          value={quantity}
-          readOnly
           data-test-id="product-quantity"
+          required
+          value={quantity}
+          onChange={(event) => {
+            if (Number(event.currentTarget.value) > 0) {
+              setQuantity(Number(event.currentTarget.value));
+            } else {
+              setQuantity(0);
+            }
+          }}
         />
         <button onClick={handleIncrease}> + </button>
       </div>
