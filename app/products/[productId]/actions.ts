@@ -7,7 +7,6 @@ import { parseJson } from '../../../util/json';
 export type CartCookie = {
   id: number;
   name: string;
-  price: number;
   quantity: number;
 };
 

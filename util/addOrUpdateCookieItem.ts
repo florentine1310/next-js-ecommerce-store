@@ -1,7 +1,6 @@
 type CartItem = {
   id: number;
   name: string;
-  price: number;
   quantity: number;
 };
 
@@ -18,7 +17,6 @@ export default function addOrUpdateCookieItem(
     cookieArray.push({
       id: cookieValue.id,
       name: cookieValue.name,
-      price: cookieValue.price,
       quantity: cookieValue.quantity,
     });
   } else {

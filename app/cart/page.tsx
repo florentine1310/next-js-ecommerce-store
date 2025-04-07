@@ -1,5 +1,6 @@
 import { cookies } from 'next/headers';
 import Link from 'next/link';
+import { getProductsByIdsInsecure } from '../../database/products';
 import { calculateOrderTotal } from '../../util/calculateOrderTotal';
 import CartItemRemoveButton from './CartItemRemoveButton';
 import CheckoutButton from './CheckoutButton';
@@ -13,23 +14,37 @@ export const metadata = {
 type CartItem = {
   id: number;
   name: string;
-  price: number;
   quantity: number;
 };
 
 export default async function CartPage() {
+  // Get Cart items from cookie
   const cartItemsCookie = (await cookies()).get('cart');
-
   const cartItems: CartItem[] = !cartItemsCookie
     ? []
     : (JSON.parse(cartItemsCookie.value) as CartItem[]);
+
+  // Get product data from database
+  const productIds = cartItems.map((item) => item.id);
+  const products = await getProductsByIdsInsecure(productIds);
+
+  // Combine cart items with product data from database
+  const cartWithDetails = cartItems.map((item) => {
+    const cartProduct = products.find((product) => product.id === item.id);
+    return {
+      ...item,
+      name: cartProduct?.name ?? 'Unknown Product',
+      price: Number(cartProduct?.price ?? 0),
+    };
+  });
 
   // Totals calculation
   const totalQuantity = cartItems.reduce(
     (acc: number, item: CartItem) => acc + item.quantity,
     0,
   );
-  const totalPrice = calculateOrderTotal(cartItems);
+
+  const totalPrice = calculateOrderTotal(cartWithDetails);
 
   return (
     <div>
@@ -47,7 +62,7 @@ export default async function CartPage() {
               </tr>
             </thead>
             <tbody>
-              {cartItems.map((item) => {
+              {cartWithDetails.map((item) => {
                 return (
                   <tr
                     key={`item-${item.id}`}

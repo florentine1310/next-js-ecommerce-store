@@ -1,8 +1,8 @@
 type CartItem = {
   id: number;
   name: string;
-  price: number;
   quantity: number;
+  price: number;
 };
 
 export function calculateOrderTotal(cartItems: CartItem[]) {

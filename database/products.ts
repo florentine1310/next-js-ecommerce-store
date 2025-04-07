@@ -12,6 +12,7 @@ import type { Product } from '../migrations/00000-createTableProducts';
     stock: 20,
   },*/
 
+// Get all products
 export const getProductsInsecure = cache(async () => {
   const products = await sql<Product[]>`
     SELECT
@@ -22,6 +23,7 @@ export const getProductsInsecure = cache(async () => {
   return products;
 });
 
+// Get product by ID
 export const getProductInsecure = cache(async (id: number) => {
   const [product] = await sql<Product[]>`
     SELECT
@@ -32,4 +34,21 @@ export const getProductInsecure = cache(async (id: number) => {
       id = ${id}
   `;
   return product;
+});
+
+export const getProductsByIdsInsecure = cache(async (ids: number[]) => {
+  if (ids.length === 0) return [];
+
+  const products = await sql<Product[]>`
+    SELECT
+      *
+    FROM
+      products
+    WHERE
+      id = ANY (
+        ${ids}
+      )
+  `;
+
+  return products;
 });

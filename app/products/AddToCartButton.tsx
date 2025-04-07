@@ -12,7 +12,6 @@ export default function AddToCartButton({ selectedProduct }: Props) {
   const productToUpdate = {
     id: selectedProduct.id,
     name: selectedProduct.name,
-    price: selectedProduct.price,
   };
 
   return (

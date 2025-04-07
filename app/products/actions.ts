@@ -7,7 +7,6 @@ type Props = {
   productToUpdate: {
     id: number;
     name: string;
-    price: string;
   };
 };
 
@@ -30,7 +29,6 @@ export async function createOrUpdateCookie(props: Props) {
     cartItems?.push({
       id: props.productToUpdate.id,
       name: props.productToUpdate.name,
-      price: Number(props.productToUpdate.price),
       quantity: 1,
     });
   } else {
