@@ -10,7 +10,6 @@ export default function reduceCookieValue(
   const cookieValue = {
     id: selectedProduct.id,
     name: selectedProduct.name,
-    price: Number(selectedProduct.price),
     quantity: quantity,
   };
 

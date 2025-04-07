@@ -15,7 +15,6 @@ test('reduce product data and quantity to right cookie value', () => {
   expect(reduceCookieValue(selectedProduct, quantity)).toStrictEqual({
     id: 1,
     name: 'Snake Plant',
-    price: 19.99,
     quantity: 5,
   });
 });
