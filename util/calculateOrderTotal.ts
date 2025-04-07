@@ -1,13 +1,13 @@
-type CartItem = {
-  id: number;
+type ProductCartItem = {
   name: string;
-  quantity: number;
   price: number;
+  id: number;
+  quantity: number;
 };
 
-export function calculateOrderTotal(cartItems: CartItem[]) {
+export function calculateOrderTotal(cartWithDetails: ProductCartItem[]) {
   const totalPrice = Number(
-    cartItems
+    cartWithDetails
       .reduce((acc, item) => acc + item.price * item.quantity, 0)
       .toFixed(2),
   );
